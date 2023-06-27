@@ -20,3 +20,7 @@ Widget getProfilePic() {
   );
   // }
 }
+
+bool isMobile(BuildContext context) {
+  return MediaQuery.of(context).size.width < 700;
+}

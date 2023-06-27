@@ -58,10 +58,6 @@ class _ServiceInfoPageState extends State<ServiceInfoPage> {
 
     return Scaffold(
       appBar: AppBar(
-        bottom: const PreferredSize(
-          preferredSize: Size.fromHeight(0),
-          child: Divider(),
-        ),
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
         title: !isMobile(context)
@@ -129,7 +125,7 @@ class _ServiceInfoPageState extends State<ServiceInfoPage> {
                     title: const Text('Services'),
                     onTap: () {
                       Navigator.pop(context);
-                      context.go('/services');
+                      context.go('/residents');
                     },
                   ),
                 ],

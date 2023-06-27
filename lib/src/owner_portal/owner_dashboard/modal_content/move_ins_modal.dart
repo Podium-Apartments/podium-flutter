@@ -29,7 +29,7 @@ class MoveInsModal extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(12),
                 child: SfCartesianChart(
-                  legend: Legend(isVisible: true),
+                  legend: const Legend(isVisible: true),
                   primaryXAxis: CategoryAxis(title: AxisTitle(text: 'Months')),
                   primaryYAxis: NumericAxis(
                     interval: 1,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:podium/src/shared/shared_index.dart';
 
 class SocialSignInButton extends StatelessWidget {
   const SocialSignInButton({
@@ -51,7 +52,7 @@ class SocialSignInButton extends StatelessWidget {
               ),
               Expanded(
                 child: SizedBox(
-                  width: MediaQuery.of(context).size.width < 740
+                  width: isMobile(context)
                       ? MediaQuery.of(context).size.width * .75
                       : 430,
                   child: Wrap(

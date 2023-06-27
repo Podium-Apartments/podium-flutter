@@ -16,6 +16,7 @@ class _BlogFeedState extends State<BlogFeed> {
   @override
   Widget build(BuildContext context) {
     final mobileBlogFeed = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CarouselSlider(
           carouselController: blogCarouselController,
@@ -34,6 +35,7 @@ class _BlogFeedState extends State<BlogFeed> {
       ],
     );
     const desktopBlogFeed = Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         BlogLink(
@@ -49,7 +51,6 @@ class _BlogFeedState extends State<BlogFeed> {
     return Wrap(
       children: [
         Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(

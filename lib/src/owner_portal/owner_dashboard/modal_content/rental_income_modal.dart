@@ -43,7 +43,7 @@ class RentalIncomeModal extends StatelessWidget {
                   title: AxisTitle(text: r'Rental Income in $'),
                 ),
                 title: ChartTitle(text: 'Monthly Rental Income'),
-                legend: Legend(isVisible: false),
+                legend: const Legend(isVisible: false),
                 series: <ChartSeries<RentalData, String>>[
                   LineSeries<RentalData, String>(
                     dataSource: chartData,

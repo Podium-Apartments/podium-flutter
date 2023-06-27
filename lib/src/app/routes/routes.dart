@@ -26,10 +26,21 @@ class RouterClass {
 
   static List<GoRoute> getRoutes() {
     return [
+      //Splash Page Routes
       GoRoute(
         path: '/',
         pageBuilder: (context, state) =>
             const MaterialPage(child: SplashPage()),
+      ),
+      GoRoute(
+        path: '/residents',
+        pageBuilder: (context, state) =>
+            const MaterialPage(child: ResidentInfoPage()),
+      ),
+      GoRoute(
+        path: '/services',
+        pageBuilder: (context, state) =>
+            const MaterialPage(child: ServiceInfoPage()),
       ),
       GoRoute(
         path: '/residentProfile',
@@ -70,6 +81,8 @@ class RouterClass {
             // const MaterialPage(child: BuildingAmenitiesPage()),
             const MaterialPage(child: BuildingAmenitiesPage()),
       ),
+
+      //Management Portal Routes
       GoRoute(
         path: '/ownerHome',
         pageBuilder: (context, state) => const MaterialPage(

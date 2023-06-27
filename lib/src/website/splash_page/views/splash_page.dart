@@ -1,6 +1,9 @@
+// ignore_for_file: unused_element
+
 import 'package:authentication_repo/authentication_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:podium/src/login/login.dart';
 import 'package:podium/src/shared/shared_index.dart';
 import 'package:podium/src/website/splash_page/views/components/splash_page_mobile_banner.dart';
@@ -106,16 +109,85 @@ class _SplashPageState extends State<SplashPage> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        shadowColor: Colors.transparent,
+        title: !isMobile(context)
+            ? Padding(
+                padding: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * .1,
+                ),
+                child: const PodiumLogoWithTitle(
+                  height: 150,
+                ),
+              )
+            : null,
+        actions: [
+          if (!isMobile(context))
+            // Builder(
+            //   builder: (BuildContext context) {
+            //     return IconButton(
+            //       icon: const Icon(Icons.menu, color: Colors.black),
+            //       onPressed: () {
+            //         Scaffold.of(context).openDrawer();
+            //       },
+            //       tooltip:
+            //           MaterialLocalizations.of(context).openAppDrawerTooltip,
+            //     );
+            //   },
+            // )
+            // else
+            Row(
+              children: [
+                TextButton(
+                  onPressed: () => context.go('/residents'),
+                  child: const Text(
+                    'Residents',
+                  ),
+                ),
+                TextButton(
+                  onPressed: () => context.go('/services'),
+                  child: const Text(
+                    'Services',
+                  ),
+                ),
+                SizedBox(width: MediaQuery.of(context).size.width * .1),
+              ],
+            ),
+        ],
+        toolbarHeight: 150,
+      ),
+      drawer: isMobile(context)
+          ? Drawer(
+              backgroundColor: Colors.white,
+              child: ListView(
+                padding: EdgeInsets.zero,
+                children: [
+                  const DrawerHeader(
+                    child: PodiumLogoWithTitle(height: 150),
+                  ),
+                  ListTile(
+                    title: const Text('Residents'),
+                    onTap: () {
+                      Navigator.pop(context);
+                      context.go('/residents');
+                    },
+                  ),
+                  ListTile(
+                    title: const Text('Services'),
+                    onTap: () {
+                      Navigator.pop(context);
+                      context.go('/residents');
+                    },
+                  ),
+                ],
+              ),
+            )
+          : null,
       body: SingleChildScrollView(
         child: Center(
           child: Column(
             children: [
-              const Padding(
-                padding: EdgeInsets.only(left: 40),
-                child: Row(
-                  children: [PodiumLogoWithTitle(height: 125)],
-                ),
-              ),
               Column(
                 children: [
                   //Splash Photo and User Action Box

@@ -12,12 +12,11 @@ class PodiumLogoWithTitle extends StatelessWidget {
       onTap: () {
         context.go('/');
       },
-      child: SizedBox(
+      child: Image.asset(
+        fit: BoxFit.cover,
         height: height,
         width: width,
-        child: Image.asset(
-          'lib/src/assets/images/podium_logo_with_title.png',
-        ),
+        'lib/src/assets/images/podium_logo_with_title.png',
       ),
     );
   }
